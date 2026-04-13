@@ -29,15 +29,15 @@ A deep learning project that classifies five rice varieties using transfer learn
 
 ### Sample Images
 
-![Sample Images](sample_images.png)
+![Sample Images](images/sample_images.png)
 
 ### Training History
 
-![Training History](training_history.png)
+![Training History](images/training_history.png)
 
 ### Confusion Matrix
 
-![Confusion Matrix](confusion_matrix.png)
+![Confusion Matrix](images/confusion_matrix.png)
 
 ## Extended Analysis
 
@@ -46,43 +46,43 @@ Beyond training and evaluation, the notebook includes deeper analysis:
 ### Random Predictions
 Randomly selected test images with predicted vs actual labels and confidence scores.
 
-![Random Predictions](random_predictions.png)
+![Random Predictions](images/random_predictions.png)
 
 ### Confidence Breakdown
 Per-class probability bar chart for individual predictions.
 
-![Confidence Chart](confidence_chart.png)
+![Confidence Chart](images/confidence_chart.png)
 
 ### Most Confidently Wrong Predictions
 Images the model was most sure about but got wrong — reveals blind spots.
 
-![Confident Mistakes](confident_mistakes.png)
+![Confident Mistakes](images/confident_mistakes.png)
 
 ### Most Ambiguous Predictions
 Images where the model was least certain — mostly Jasmine grains confused with other varieties.
 
-![Ambiguous Predictions](ambiguous_predictions.png)
+![Ambiguous Predictions](images/ambiguous_predictions.png)
 
 ### Grad-CAM Heatmaps
 Visualizes which parts of the grain the model focuses on — primarily edges, shape, and surface texture.
 
-![Grad-CAM](gradcam_heatmaps.png)
+![Grad-CAM](images/gradcam_heatmaps.png)
 
 ### Feature Space Visualization
 t-SNE and PCA plots showing 5 clearly separated clusters, confirming strong learned features.
 
-![t-SNE](tsne_features.png)
-![PCA](pca_features.png)
+![t-SNE](images/tsne_features.png)
+![PCA](images/pca_features.png)
 
 ### Grain Shape Analysis
 Contour-based comparison of grain area, perimeter, and aspect ratio across varieties.
 
-![Grain Shapes](grain_shapes.png)
+![Grain Shapes](images/grain_shapes.png)
 
 ### Model Comparison
 EfficientNet and ResNet50 benchmarked against the existing MobileNet on accuracy, speed, and model size.
 
-![Model Comparison](model_comparison.png)
+![Model Comparison](images/model_comparison.png)
 
 ### Train from Scratch
 A simple CNN trained without transfer learning to demonstrate how much pretrained features help.
@@ -99,10 +99,10 @@ pip install tensorflow opencv-python scikit-learn matplotlib seaborn numpy kaggl
 
 The notebook auto-downloads the dataset from Kaggle on first run. You'll need Kaggle API credentials:
 
-1. Go to [kaggle.com](https://kaggle.com) -> Settings -> API -> Create New Token
+1. Go to [kaggle.com](images/https://kaggle.com) -> Settings -> API -> Create New Token
 2. Save the downloaded `kaggle.json` to `~/.kaggle/kaggle.json`
 
-Alternatively, download the dataset manually from [Kaggle](https://www.kaggle.com/datasets/muratkokludataset/rice-image-dataset/) and place it in the project directory as `./Rice_Image_Dataset/`.
+Alternatively, download the dataset manually from [Kaggle](images/https://www.kaggle.com/datasets/muratkokludataset/rice-image-dataset/) and place it in the project directory as `./Rice_Image_Dataset/`.
 
 ### 3. Run
 
