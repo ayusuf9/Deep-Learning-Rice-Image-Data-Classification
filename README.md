@@ -2,6 +2,8 @@
 
 A deep learning project that classifies five rice varieties using transfer learning with MobileNet.
 
+`By Yusuf Musa`
+
 ## Rice Varieties
 
 - Arborio
@@ -16,12 +18,14 @@ A deep learning project that classifies five rice varieties using transfer learn
 - **Transfer Learning:** Last 20 layers of MobileNet are fine-tuned for rice-specific features
 - **Data Augmentation:** Rotation, flips, shifts, and zoom applied during training
 - **Optimizer:** Adam with learning rate of 0.0001
+- **Data:** 1,500 images per class, stratified train/val/test split
 
 ## Results
 
-- **Test Accuracy:** 99.7%
-- Arborio and Ipsala classified at 100%
+- **Test Accuracy:** 99.82%
+- Only 1 misclassification out of 562 test images
 - Jasmine is the most challenging variety to distinguish
+- Karacadag and Arborio are most commonly confused due to similar round grain shapes
 
 ### Sample Images
 
@@ -35,6 +39,54 @@ A deep learning project that classifies five rice varieties using transfer learn
 
 ![Confusion Matrix](confusion_matrix.png)
 
+## Extended Analysis
+
+Beyond training and evaluation, the notebook includes deeper analysis:
+
+### Random Predictions
+Randomly selected test images with predicted vs actual labels and confidence scores.
+
+![Random Predictions](random_predictions.png)
+
+### Confidence Breakdown
+Per-class probability bar chart for individual predictions.
+
+![Confidence Chart](confidence_chart.png)
+
+### Most Confidently Wrong Predictions
+Images the model was most sure about but got wrong — reveals blind spots.
+
+![Confident Mistakes](confident_mistakes.png)
+
+### Most Ambiguous Predictions
+Images where the model was least certain — mostly Jasmine grains confused with other varieties.
+
+![Ambiguous Predictions](ambiguous_predictions.png)
+
+### Grad-CAM Heatmaps
+Visualizes which parts of the grain the model focuses on — primarily edges, shape, and surface texture.
+
+![Grad-CAM](gradcam_heatmaps.png)
+
+### Feature Space Visualization
+t-SNE and PCA plots showing 5 clearly separated clusters, confirming strong learned features.
+
+![t-SNE](tsne_features.png)
+![PCA](pca_features.png)
+
+### Grain Shape Analysis
+Contour-based comparison of grain area, perimeter, and aspect ratio across varieties.
+
+![Grain Shapes](grain_shapes.png)
+
+### Model Comparison
+EfficientNet and ResNet50 benchmarked against the existing MobileNet on accuracy, speed, and model size.
+
+![Model Comparison](model_comparison.png)
+
+### Train from Scratch
+A simple CNN trained without transfer learning to demonstrate how much pretrained features help.
+
 ## Setup
 
 ### 1. Install dependencies
@@ -45,7 +97,7 @@ pip install tensorflow opencv-python scikit-learn matplotlib seaborn numpy kaggl
 
 ### 2. Get the dataset
 
-The script auto-downloads the dataset from Kaggle on first run. You'll need Kaggle API credentials:
+The notebook auto-downloads the dataset from Kaggle on first run. You'll need Kaggle API credentials:
 
 1. Go to [kaggle.com](https://kaggle.com) -> Settings -> API -> Create New Token
 2. Save the downloaded `kaggle.json` to `~/.kaggle/kaggle.json`
@@ -54,11 +106,15 @@ Alternatively, download the dataset manually from [Kaggle](https://www.kaggle.co
 
 ### 3. Run
 
-```bash
-python rice_classification_v2.py
-```
+Open `rice_prediction.ipynb` in Jupyter and run all cells. The best model is saved to `best_rice_model.keras`.
 
-The best model is saved to `best_rice_model.keras`.
+## Key Takeaways
+
+- Transfer learning with MobileNet achieves near-perfect classification with relatively little data
+- Jasmine is the hardest variety to distinguish, overlapping with multiple other types in feature space
+- Karacadag and Arborio share similar round grain shapes, leading to occasional confusion
+- Grad-CAM shows the model focuses on grain edges and shape rather than background
+- t-SNE/PCA confirm the model learns distinct, well-separated feature representations
 
 ## Dataset Citation
 

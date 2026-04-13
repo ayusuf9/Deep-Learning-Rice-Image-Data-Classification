@@ -1,0 +1,7 @@
+.ipynb_checkpoints/
+.python-version
+Rice_Image_Dataset/
+*.keras
+kaggle.json
+__pycache__/
+*.py
